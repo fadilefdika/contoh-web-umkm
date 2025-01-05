@@ -7,12 +7,12 @@
           <v-img
             src="/src/assets/logo.svg"
             alt="Logo"
-            max-width="40"
-            max-height="40"
+            max-width="30"
+            max-height="30"
             contain
             class="me-2"
           ></v-img>
-          <span class="text-h5 font-weight-bold">BrandName</span>
+          <span class="text-h6 font-weight-medium">BrandName</span>
         </v-row>
 
         <!-- Navigation Links -->
@@ -35,7 +35,7 @@ export default {
     return {
       links: [
         { text: "Home", route: "/" },
-        { text: "Tentang Kami", route: "/tentangkami" },
+        { text: "Tentang", route: "/tentangkami" },
         { text: "Produk", route: "/produk" },
       ],
     };
@@ -44,11 +44,12 @@ export default {
 </script>
 
 <style scoped>
-/* Navbar Container */
+/* Navbar */
 .navbar {
   position: sticky;
-  width: 100%;
-  padding: 0.5rem 0;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Navbar Logo */
@@ -59,8 +60,8 @@ export default {
 }
 
 .navbar-logo span {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 500;
   color: #333;
 }
 
@@ -68,20 +69,29 @@ export default {
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin: 0;
   padding: 0;
 }
 
 .navbar-link {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: #333;
   text-transform: capitalize;
-  transition: color 0.3s ease-in-out;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0.75rem;
 }
 
 .navbar-link:hover {
   color: #ff4500;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none; /* Bisa diganti dengan toggle menu */
+  }
 }
 </style>

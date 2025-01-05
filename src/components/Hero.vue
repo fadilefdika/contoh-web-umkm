@@ -155,11 +155,12 @@ export default {
 
 .icons {
   position: absolute;
-  top: 20px;
-  left: 10px;
+  top: 150px;
+  left: 60px;
   z-index: 2;
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
   gap: 15px;
 }
 
