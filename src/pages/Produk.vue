@@ -7,8 +7,8 @@
       </p>
     </div>
 
-    <!-- Kolom untuk Grid Produk -->
-    <v-row justify="center" align="center" class="pa-4">
+    <!-- CSS Grid untuk Mengatur Tata Letak Card -->
+    <v-row justify="center" align="start" class="pa-4 grid-layout">
       <CardProduk
         v-for="(product, index) in products"
         :key="index"
@@ -90,12 +90,21 @@ export default {
   text-align: center;
 }
 
-.v-row {
+/* CSS Grid Layout untuk Card */
+/* .grid-layout {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); 
   gap: 24px;
-}
+} */
 
+/* Hover dan Transisi */
 .v-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  border: 2px solid red;
 }
 
 .v-card:hover {

@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <div>
     <Navbar />
 
     <v-main>
@@ -7,9 +7,9 @@
     </v-main>
 
     <AppFooter />
-  </v-app>
+  </div>
 </template>
 
 <script setup>
-//
+// Pengaturan lainnya
 </script>

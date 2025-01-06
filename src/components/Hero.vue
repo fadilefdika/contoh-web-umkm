@@ -133,6 +133,15 @@ export default {
   top: -40px;
 }
 
+@media (max-width: 960px) {
+  .hero {
+    height: 100vh;
+  }
+  .image-content {
+    top: -10px;
+  }
+}
+
 .image-wrapper-one,
 .image-wrapper-two {
   position: absolute;

@@ -1,31 +1,33 @@
 <template>
-  <v-app-bar app color="white" flat class="navbar">
-    <v-container>
-      <v-row align="center" justify="space-between" class="navbar-container">
-        <!-- Logo -->
-        <v-row align="center" class="navbar-logo">
-          <v-img
-            src="/src/assets/logo.svg"
-            alt="Logo"
-            max-width="30"
-            max-height="30"
-            contain
-            class="me-2"
-          ></v-img>
-          <span class="text-h6 font-weight-medium">BrandName</span>
-        </v-row>
+  <div class="navbar-container">
+    <!-- Logo Section -->
+    <div class="navbar-logo">
+      <img src="/src/assets/logo.svg" alt="Logo" class="logo-img" />
+      <span class="brand-name">BrandName</span>
+    </div>
 
-        <!-- Navigation Links -->
-        <v-row tag="ul" class="navbar-links">
-          <li v-for="link in links" :key="link.text">
-            <v-btn :to="link.route" text exact class="navbar-link">
-              {{ link.text }}
-            </v-btn>
-          </li>
-        </v-row>
-      </v-row>
-    </v-container>
-  </v-app-bar>
+    <!-- Navigation Links -->
+    <ul class="navbar-links">
+      <li v-for="link in links" :key="link.text">
+        <a :href="link.route" class="navbar-link">{{ link.text }}</a>
+      </li>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-btn" @click="toggleMenu">
+      <span v-if="!isMenuOpen">☰</span>
+      <span v-else>×</span>
+    </button>
+
+    <!-- Mobile Menu -->
+    <ul v-if="isMenuOpen" class="mobile-menu">
+      <li v-for="link in links" :key="link.text">
+        <a :href="link.route" class="navbar-link" @click="toggleMenu">{{
+          link.text
+        }}</a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -38,28 +40,44 @@ export default {
         { text: "Tentang", route: "/tentangkami" },
         { text: "Produk", route: "/produk" },
       ],
+      isMenuOpen: false,
     };
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
   },
 };
 </script>
 
 <style scoped>
-/* Navbar */
-.navbar {
+/* Navbar Container */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 10;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Navbar Logo */
+/* Logo Section */
 .navbar-logo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.navbar-logo span {
+.logo-img {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.brand-name {
   font-size: 1.25rem;
   font-weight: 500;
   color: #333;
@@ -80,18 +98,52 @@ export default {
   color: #333;
   text-transform: capitalize;
   text-decoration: none;
-  transition: all 0.3s ease;
   padding: 0.5rem 0.75rem;
+  transition: all 0.3s ease;
 }
 
 .navbar-link:hover {
   color: #ff4500;
 }
 
+/* Mobile Menu */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Mobile Menu Links */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 100%;
+  transition: all 0.7s ease;
+}
+
+.mobile-menu .navbar-link {
+  padding: 1rem;
+  text-align: center;
+}
+
 /* Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .navbar-links {
-    display: none; /* Bisa diganti dengan toggle menu */
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
   }
 }
 </style>
