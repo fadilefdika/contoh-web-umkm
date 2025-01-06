@@ -33,7 +33,7 @@
             alt="ayam taliwang"
           />
         </div>
-        <div>
+        <div class="image-wrapper-three">
           <!-- Gambar 3 -->
           <v-img
             class="food-image-three"
@@ -175,14 +175,15 @@ export default {
   }
 
   .image-wrapper-one,
-  .image-wrapper-two {
+  .image-wrapper-two,
+  .image-wrapper-three {
     position: static;
     background-color: #fff;
     border-radius: 20px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .hero {
     height: auto;
     padding: 10px;
@@ -196,15 +197,24 @@ export default {
     font-size: 1.8rem;
   }
 
+  /* .image-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  } */
+
   .image-wrapper-one,
-  .image-wrapper-two {
-    margin-bottom: 10px;
+  .image-wrapper-two,
+  .image-wrapper-three {
+    flex-direction: column;
+    gap: 10px;
   }
 
   .food-image-one,
   .food-image-two,
   .food-image-three {
-    width: 120px;
+    width: 100px;
   }
 }
 </style>
