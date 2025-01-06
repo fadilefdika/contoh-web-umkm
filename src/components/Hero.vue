@@ -43,16 +43,6 @@
         </div>
       </v-col>
     </v-row>
-
-    <!-- Icons Section -->
-    <v-row class="icons">
-      <i class="fa-solid fa-utensils icon-1" style="color: #ff4500"></i>
-      <i class="fa-solid fa-bowl-rice icon-2" style="color: #ff4500"></i>
-      <i class="fa-solid fa-drumstick-bite icon-3" style="color: #ff4500"></i>
-      <i class="fa-solid fa-spoon icon-4" style="color: #ff4500"></i>
-      <i class="fa-solid fa-pepper-hot icon-5" style="color: #ff4500"></i>
-      <i class="fa-solid fa-cocktail icon-6" style="color: #ff4500"></i>
-    </v-row>
   </v-container>
 </template>
 
@@ -63,6 +53,7 @@ export default {
 </script>
 
 <style scoped>
+/* GENERAL STYLES */
 .hero {
   background-color: #f9f9f9;
   position: relative;
@@ -133,15 +124,6 @@ export default {
   top: -40px;
 }
 
-@media (max-width: 960px) {
-  .hero {
-    height: 100vh;
-  }
-  .image-content {
-    top: -10px;
-  }
-}
-
 .image-wrapper-one,
 .image-wrapper-two {
   position: absolute;
@@ -162,19 +144,67 @@ export default {
   z-index: 2;
 }
 
-.icons {
-  position: absolute;
-  top: 150px;
-  left: 60px;
-  z-index: 2;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  gap: 15px;
+/* RESPONSIVE STYLES */
+@media (max-width: 960px) {
+  .hero {
+    height: 80vh;
+    padding: 0 60px;
+  }
+
+  .text-content {
+    margin-top: 0;
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .text-content p {
+    text-align: center;
+  }
+
+  .image-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+  }
+
+  .food-image-one,
+  .food-image-two,
+  .food-image-three {
+    width: 200px;
+  }
+
+  .image-wrapper-one,
+  .image-wrapper-two {
+    position: static;
+    background-color: #fff;
+    border-radius: 20px;
+  }
 }
 
-.icons .icon {
-  font-size: 6rem;
-  color: #ff4500;
+@media (max-width: 600px) {
+  .hero {
+    height: auto;
+    padding: 10px;
+  }
+
+  .text-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .text-content span {
+    font-size: 1.8rem;
+  }
+
+  .image-wrapper-one,
+  .image-wrapper-two {
+    margin-bottom: 10px;
+  }
+
+  .food-image-one,
+  .food-image-two,
+  .food-image-three {
+    width: 120px;
+  }
 }
 </style>
