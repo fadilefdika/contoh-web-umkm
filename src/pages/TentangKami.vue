@@ -66,9 +66,6 @@
 
           <!-- CEO Quote -->
           <div class="ceo-signature">
-            <v-avatar size="48" class="mb-2">
-              <v-img src="../assets/ceo-avatar.jpg" alt="CEO Avatar"></v-img>
-            </v-avatar>
             <div>
               <p class="text-h6 font-weight-bold text-dark-gray mb-1">
                 Nama CEO
